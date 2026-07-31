@@ -1,29 +1,30 @@
 pipeline {
+
     agent any
 
     stages {
 
         stage('Check Python') {
             steps {
-                bat '"C:\\Python314\\python.exe" --version'
+                bat '"C:\\Users\\FE\\AppData\\Local\\Programs\\Python\\Python314\\python.exe" --version'
             }
         }
 
         stage('Install Dependencies') {
             steps {
-                bat '"C:\\Python314\\python.exe" -m pip install -r requirements.txt'
+                bat '"C:\\Users\\FE\\AppData\\Local\\Programs\\Python\\Python314\\python.exe" -m pip install -r requirements.txt'
             }
         }
 
         stage('Build') {
             steps {
-                bat '"C:\\Python314\\python.exe" app.py'
+                bat '"C:\\Users\\FE\\AppData\\Local\\Programs\\Python\\Python314\\python.exe" app.py'
             }
         }
 
         stage('Test') {
             steps {
-                bat '"C:\\Python314\\python.exe" -m pytest --junitxml=test-results.xml'
+                bat '"C:\\Users\\FE\\AppData\\Local\\Programs\\Python\\Python314\\python.exe" -m pytest --junitxml=test-results.xml'
             }
         }
     }
