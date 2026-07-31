@@ -5,25 +5,25 @@ pipeline {
 
         stage('Check Python') {
             steps {
-                bat 'py --version'
+                bat '"C:\\Python314\\python.exe" --version'
             }
         }
 
         stage('Install Dependencies') {
             steps {
-                bat 'py -m pip install -r requirements.txt'
+                bat '"C:\\Python314\\python.exe" -m pip install -r requirements.txt'
             }
         }
 
         stage('Build') {
             steps {
-                bat 'py app.py'
+                bat '"C:\\Python314\\python.exe" app.py'
             }
         }
 
         stage('Test') {
             steps {
-                bat 'py -m pytest --junitxml=test-results.xml'
+                bat '"C:\\Python314\\python.exe" -m pytest --junitxml=test-results.xml'
             }
         }
     }
