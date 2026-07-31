@@ -5,10 +5,10 @@ pipeline {
     stages {
 
         stage('Checkout') {
-            steps {
-                git 'https://github.com/username/DevOps-Lab.git'
-            }
-        }
+    steps {
+        git 'https://github.com/nisharanipadhy14-hub/DevOps-Lab.git'
+    }
+}
 
         stage('Install Dependencies') {
             steps {
