@@ -4,12 +4,6 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
-    steps {
-        git 'https://github.com/nisharanipadhy14-hub/DevOps-Lab.git'
-    }
-}
-
         stage('Install Dependencies') {
             steps {
                 bat 'pip install -r requirements.txt'
@@ -27,11 +21,12 @@ pipeline {
                 bat 'pytest --junitxml=test-results.xml'
             }
         }
+
     }
 
     post {
         always {
-            junit 'test-results.xml'
+            junit allowEmptyResults: true, testResults: 'test-results.xml'
         }
     }
 }
